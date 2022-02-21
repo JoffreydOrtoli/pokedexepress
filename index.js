@@ -17,7 +17,7 @@ app.use(express.urlencoded({
   }));
 
 app.use(session({
-    secret: 'issieniake',
+    secret: process.env.SESSION_SECRET,
     resave: true,
     saveUninitialized: true,
     cookie: { secure: false }
@@ -29,6 +29,13 @@ app.use((req, res, next) => {
     }
     else {
         res.locals.user = false;
+    }
+    next();
+});
+
+app.use((req, res, next) => {
+    if (!req.session.deck) {
+        req.session.deck = []
     }
     next();
 });

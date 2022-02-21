@@ -1,0 +1,14 @@
+<%- include('./partials/header') %>
+<div class="pokemon-case">
+    <% for (const pokemon of pokemons) { %>
+        <div class="pokemons">
+        <a href="/detailpokemon/<%= pokemon.id %>">
+            <img class="pokemons-img" src="/img/<%= pokemon.id %>.png" alt="pokemons img">
+            <h4 class="h5">#<%= pokemon.id %> <%= pokemon.nom %></h4>
+        </a>
+        </div>
+    <% } %>
+
+</div>
+            
+<%- include('./partials/footer') %>

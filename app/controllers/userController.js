@@ -39,12 +39,13 @@ const userController = {
 
         const user = await User.findOne( { where : {email: req.body.email}});
         if (user) {
-            if(bcrypt.hashSync(req.body.password, user.password)){
+            if (bcrypt.compareSync(req.body.password, user.password)) {
+                user.password = null;
                 req.session.user = user;
-                delete req.session.user.password;
                 res.redirect('/');
             }
             else {
+                console.log(req.body.password);
                 console.log('nop');
             }
         }

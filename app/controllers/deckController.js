@@ -1,0 +1,45 @@
+const { Pokemon, Type } = require("../models");
+
+const deckController = {
+
+    async addPokemon(req, res) {
+
+        const pokemonId = req.params.id;
+        const foundPokemon = req.session.deck.find(pokemon => pokemon.id === parseInt(pokemonId, 10));
+        console.log(req.session.deck);
+        console.log(foundPokemon);
+        if (foundPokemon) {
+            res.redirect("/deck");
+        }
+        else {
+            if (req.session.deck.length < 6) {
+            
+                try {
+                    const pokemon = await Pokemon.findByPk(pokemonId);
+                    if (pokemon) {
+                        req.session.deck.push(pokemon);
+                        res.redirect("/deck");
+                    }
+                    else {
+                        res.status(404).send(`Pokemon with id ${pokemonId} not found`);
+                    }
+                }
+                catch (error) {
+                    console.error(error);
+                    response.status(500).render('error');
+                }
+            }
+            else {
+                res.redirect("/deck");
+            }
+        }
+        
+    },
+
+    async deckPage(req, res) {
+            res.render("deck", {pokemons: req.session.deck});
+    }
+    
+};
+
+module.exports = deckController;
