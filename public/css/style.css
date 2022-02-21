@@ -1,0 +1,298 @@
+/* All */
+
+body {
+    background-color: #C14040;
+    font-family: 'Bree Serif', serif;
+}
+
+
+/*  Header */
+
+.header a:hover {
+    color: #C14040;
+    text-decoration: underline;
+}
+
+.header {
+    background-color: #EFE3E3;
+    max-width: 94%;
+    margin: 2rem auto;
+    border-radius: 2rem;
+}
+
+.header-color {
+    color: #C14040;
+}
+
+.nav-title {
+    font-size: 1.2rem;
+}
+
+/*  Page liste pokemons */
+
+.pokemon-case {
+    max-width: 94%;
+    margin: 0 auto;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.pokemons {
+    width: 22%;
+    background-color: #982C2C;
+    border-radius: 2rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+a, a:hover{
+    color: #EFE3E3;
+    text-decoration: none;
+}
+
+.pokemons-img {
+    width: 90%;
+    margin: 1rem auto;
+}
+
+/* Liste types */
+
+.liste-types_title {
+    margin-left: 4%;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    color: #EFE3E3;
+}
+
+#types-box {
+    max-width: 94%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.buttons-type {
+    width: 22%;
+    padding: 2rem;
+    text-align: center;
+    font-size: 1.2em;
+    border-radius: 0.4rem;
+}
+
+
+/* Detail pokemon */
+
+#detail-pokemon_title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 3rem;
+    color: #EFE3E3;
+    margin: 3rem 0;
+}
+
+#detail-pokemon {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.detail-pokemons_img {
+    width: 25%;
+}
+
+#detail-pokemon_infos {
+    width: 45%;
+    background-color: #AB3838;
+    color: #EFE3E3;
+    padding: 2rem;
+    border-radius: 15px;
+}
+
+.detail-pokemon_idname {
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.detail-pokemon_statistiques {
+    margin: 3.5rem 0 2rem 0;
+}
+
+.button_pokemon-type {
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.4rem;
+    margin-right: 0.2rem;
+}
+
+
+#stats_and_sidebars {
+    margin-bottom: 1.2em;
+    font-size: 1.2rem;
+}
+
+.info_stat {
+    display: flex;
+    gap: 2em;
+} 
+
+.stats-names {
+    width: 25%;
+}
+
+.stats-values {
+    width: 15%;
+}
+
+.capacitys_bars {
+    width: 50%;
+    height: 26px;
+    margin-bottom: 1em;
+    background-color: #632B2B;
+    border-radius: 5px;
+}
+
+.stats_bars {
+    background-color: #EFE3E3;
+    height: 26px;
+    border-radius: 5px;
+}
+
+/* Formulaires */
+
+.form_register-login {
+    width: 20%;
+    margin: 4rem auto;
+}
+
+.btn_validate-register {
+    margin-top: 1rem;
+    background-color: #EFE3E3;
+}
+
+.form-control {
+    background-color: #EFE3E3;
+}
+
+/*  Footer */
+
+#footer {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+#footer_image-mahh {
+    width: 10rem;
+}
+
+/* Couleurs types pokemon */
+
+.acier {
+    background-color: #aaaabb;
+}
+.combat {
+    background-color: #BB5544;
+}
+.dragon {
+    background-color: #7766EE;
+}
+.eau {
+    background-color: #3399FF;
+}
+.électrik {
+    background-color: #FFBB33;
+}
+.feu {
+    background-color: #FF4422;
+}
+.glace {
+    background-color: #7BD4F4;
+}
+.insecte {
+    background-color: #AABB22;
+}
+.normal {
+    background-color: #BBAABB;
+}
+.plante {
+    background-color: #77CC55;
+}
+.poison {
+    background-color: #AA5599;
+}
+.psy {
+    background-color: #FF5599;
+}
+.roche {
+    background-color: #BBAA66;
+}
+.sol {
+    background-color: #DDBB55;
+}
+.spectre {
+    background-color: #6666BB;
+}
+.ténèbres {
+    background-color: #665544;
+}
+.vol {
+    background-color: #6699FF;
+}
+
+@media (max-width: 650px) {
+
+
+    .nav-style-link {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: 5rem;
+    }
+    
+    .pokemons {
+        width: 44%;
+    }
+
+    .pokemon-case {
+        width: 100%;
+    }
+
+    .detail-pokemons_img {
+        width: 90%;
+    }
+
+    #detail-pokemon {
+        flex-direction: column;
+    }
+
+    #detail-pokemon_infos {
+        width: 96%;
+    }
+
+    #stats_and_sidebars {
+        margin-bottom: 1em;
+        font-size: 1rem;
+    }
+
+    .buttons-type {
+        width: 90%;
+        padding: 0.2rem;
+    }
+
+    .info_stat {
+        display: flex;
+        gap: 0.2em;
+    }
+
+    .capacitys_bars {
+        width: 67%;
+    }
+
+    .form_register-login {
+        width: 84%;
+    }
+}

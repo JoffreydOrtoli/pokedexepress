@@ -1,0 +1,9 @@
+<%- include('./partials/header') %>
+    <h1 class="h4 liste-types_title">Cliquez sur un type pour voir tous les Pokémons de ce type</h1>
+    <div id="types-box">
+        <% for (const type of allTypes) { %>
+                <a class="buttons-type <%=type.name.toLowerCase() %>" href="/pagetypechoice/<%= type.id %>"><%= type.name %></a>
+        <% } %>
+
+    </div>
+<%- include('./partials/footer') %>
