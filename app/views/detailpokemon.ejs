@@ -1,8 +1,5 @@
 <%- include('./partials/header') %>
-    <h1 id="detail-pokemon_title">Details de <%= foundPokemon.nom %></h1>
-    <% if (locals.user) { %>
-    <a href="/deck/add/<%= foundPokemon.id %>">Ajouter au deck</a>
-    <% } %>
+    <h1 class="detail-pages_title">Details de <%= foundPokemon.nom %></h1>
     <div id="detail-pokemon">
         <img class="detail-pokemons_img" src="/img/<%= foundPokemon.id %>.png" alt="<%= foundPokemon.nom %> img">
         <div id="detail-pokemon_infos">
@@ -54,7 +51,9 @@
                             <div class="stats_bars" style="width: <%= foundPokemon.vitesse/2.55 %>%;""></div>
                         </div>
                     </div>
-                    
+                    <% if (locals.user) { %>
+                        <a class="button_add-card-to-deck" href="/deck/add/<%= foundPokemon.id %>">Ajouter au deck</a>
+                    <% } %>
             </div>
         </div>
 

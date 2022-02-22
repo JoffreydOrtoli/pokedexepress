@@ -40,6 +40,9 @@ User.init(
         notEmpty: true,
       },
     },
+    role: {
+      type: DataTypes.TEXT,
+    }
   },
   {
     sequelize,

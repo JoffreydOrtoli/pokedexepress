@@ -40,6 +40,16 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use((req, res, next) => {
+    if (req.session.deck) {
+        res.locals.deck = req.session.deck;
+    }
+    else {
+        res.locals.deck = false;
+    }
+    next();
+});
+
 app.use(router);
 
 app.listen(PORT, (req, res) => {

@@ -1,4 +1,5 @@
 <%- include('./partials/header') %>
+<h1 class="detail-pages_title">Taille du deck : <%= locals.deck.length %> / 6</h1>
 <div class="pokemon-case">
     <% for (const pokemon of pokemons) { %>
         <div class="pokemons">
@@ -6,6 +7,7 @@
             <img class="pokemons-img" src="/img/<%= pokemon.id %>.png" alt="pokemons img">
             <h4 class="h5">#<%= pokemon.id %> <%= pokemon.nom %></h4>
         </a>
+        <a class="link--removeCard" title="Supprimer du deck" href="/deck/remove/<%=pokemon.id %>">[ - ]</a>
         </div>
     <% } %>
 

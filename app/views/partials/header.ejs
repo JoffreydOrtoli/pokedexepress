@@ -23,6 +23,7 @@
             <a class="p-2 header-color nav-title" href="/listeoftypes">Types</a>
             <% if (locals.user.firstname && locals.user.role !== "admin") { %>
                 <a class="p-2 header-color nav-title" href="/deck">Deck</a>
+                <a class="p-2 header-color nav-title" href="/profil">Profil</a>
                 <a class="p-2 header-color nav-title" href="/logOut">Se déconnecter</a>
             <% } %>
             <% if (!locals.user.firstname) { %>
@@ -30,6 +31,8 @@
                 <a class="p-2 header-color nav-title" href="/login">Se connecter</a>
             <% } %>
             <% if (locals.user.role === "admin") { %>
+                <a class="p-2 header-color nav-title" href="/deck">Deck</a>
+                <a class="p-2 header-color nav-title" href="/profil">Profil</a>
                 <a class="p-2 header-color nav-title" href="/admin">Admin</a>
                 <a class="p-2 header-color nav-title" href="/logOut">Se déconnecter</a>
             <% } %>

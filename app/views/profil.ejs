@@ -1,0 +1,27 @@
+<%- include('partials/header') %>
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h2 class="h1 display-4">Mon Compte</h2>
+</div>
+
+
+<div class="profile text-center">
+  <div class="form-group mb-5">
+    <label class="">Nom</label>
+    <div class="h2"><%= user.lastname %></div>
+  </div>
+  <div class="form-group mb-5">
+    <label class="">Prénom</label>
+    <div class="h2"><%= user.firstname %></div>
+  </div>
+  <div class="form-group mb-5">
+    <label class="">Email</label>
+    <div class="h2"><%= user.email %></div>
+  </div>
+  <div class="form-group mb-5">
+    <label class="">Role</label>
+    <div class="h2"><%= user.role %></div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

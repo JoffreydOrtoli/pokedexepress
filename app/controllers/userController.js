@@ -45,7 +45,6 @@ const userController = {
                 res.redirect('/');
             }
             else {
-                console.log(req.body.password);
                 console.log('nop');
             }
         }
@@ -57,7 +56,16 @@ const userController = {
     async userLogOut (req, res) {
         delete req.session.user;
         res.redirect('/');
-    }
+    },
+
+    profilPage: (req, res) => {
+        if (!req.session.user) {
+          return res.redirect('/login');
+        }
+        res.render('profil', {
+          user: req.session.user
+        });
+      }
 
 };
 

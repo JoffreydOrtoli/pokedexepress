@@ -6,8 +6,6 @@ const deckController = {
 
         const pokemonId = req.params.id;
         const foundPokemon = req.session.deck.find(pokemon => pokemon.id === parseInt(pokemonId, 10));
-        console.log(req.session.deck);
-        console.log(foundPokemon);
         if (foundPokemon) {
             res.redirect("/deck");
         }
@@ -37,9 +35,22 @@ const deckController = {
     },
 
     async deckPage(req, res) {
-            res.render("deck", {pokemons: req.session.deck});
+        if (!req.session.user) {
+            return res.redirect('/login');
+          }
+        res.render("deck", {pokemons: req.session.deck});
+    },
+
+    async removePokemon(req, res) {
+        const findPokemon = req.params.id;
+
+        const newDeck = req.session.deck.filter((pokemon) => {
+                return pokemon.id !== parseInt(findPokemon, 10);
+        });
+        req.session.deck = newDeck;
+        res.redirect('/deck');
     }
-    
+
 };
 
 module.exports = deckController;
