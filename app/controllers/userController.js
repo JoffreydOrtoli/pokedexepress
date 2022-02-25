@@ -15,7 +15,6 @@ const userController = {
             if(req.body.password !== req.body.passwordConfirm) {
                 return res.redirect('/register?error=passwordNotMatch');
             };
-            console.log(req.body);
             const cryptedPassword = bcrypt.hashSync(password, 10);
             const user = await User.findOne( { where : {email: req.body.email}} );
             if (user === null) {

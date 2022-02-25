@@ -28,6 +28,27 @@ body {
     font-size: 1.2rem;
 }
 
+/* Formulaires */
+
+.form_register-login {
+    width: 20%;
+    margin: 4rem auto;
+}
+
+.btn_validate-register {
+    margin-top: 2rem;
+    background-color: #EFE3E3;
+}
+
+.form-control {
+    background-color: #EFE3E3;
+}
+
+.link-to-register {
+    display: block;
+    margin-top: 3rem;
+}
+
 /*  Page liste pokemons */
 
 .pokemon-case {
@@ -173,20 +194,19 @@ a, a:hover{
     color: #AB3838;
 }
 
-/* Formulaires */
+/* Battle page */
 
-.form_register-login {
-    width: 20%;
-    margin: 4rem auto;
+.battle-title {
+    text-align: center;
+    font-size: 6rem;
+}
+#shuffle {
+    display: block;
+    text-align: center;
 }
 
-.btn_validate-register {
-    margin-top: 1rem;
-    background-color: #EFE3E3;
-}
-
-.form-control {
-    background-color: #EFE3E3;
+.pokemon-case--battle {
+    gap: 15rem;
 }
 
 /*  Footer */

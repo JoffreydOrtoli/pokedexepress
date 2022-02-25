@@ -1,0 +1,15 @@
+<%- include('./partials/header.ejs') %>
+<h1 class="battle-title">Arène VS</h1>
+<a href="/battle/fight" id="shuffle">Mélanger</a>
+<div class="pokemon-case pokemon-case--battle">
+    <% for (const pokemon of randomPokemon) { %>
+        <div class="pokemons">
+        <a href="/detailpokemon/<%= pokemon.id %>">
+            <img class="pokemons-img" src="/img/<%= pokemon.id %>.png" alt="pokemons img">
+            <h4 class="h5">#<%= pokemon.id %> <%= pokemon.nom %></h4>
+        </a>
+        </div>
+    <% } %>
+
+</div>
+<%- include('./partials/footer.ejs') %>
