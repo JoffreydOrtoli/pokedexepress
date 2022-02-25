@@ -13,7 +13,9 @@ const battleController = {
     },
 
     async battleBots(req, res) {
-        
+        if (!req.session.user) {
+            return res.redirect('/login');
+        }
         try {
             const randomPokemon = await Pokemon.findAll({ order: sequelize.random(), limit: 2,});
             res.render("battle", {randomPokemon});
