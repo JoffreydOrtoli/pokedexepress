@@ -1,17 +1,20 @@
 const express = require('express');
 const router = express.Router();
 
-const mainController = require('./controllers/mainController');
 const pokemonController = require('./controllers/pokemonController');
+const typeController = require('./controllers/typeController');
 const userController = require('./controllers/userController');
 const deckController = require('./controllers/deckController');
 const battleController = require('./controllers/battleController');
 
-router.get('/', mainController.homePage);
+// Routes pokemon
+router.get('/pokemon', pokemonController.getAllOnPokemon);
+router.get('/pokemon/:pokemon_id', pokemonController.getOnPokemon);
 
-router.get('/detailpokemon/:id', pokemonController.detailpokemon);
-router.get('/listeoftypes', pokemonController.listeOfTypes);
-router.get('/pagetypechoice/:id', pokemonController.typeChoice);
+// Routes type
+router.get('/type', typeController.getAllType);
+router.get('/type/:type_id', typeController.GetAllPokemonFromOneType);
+
 
 router.get('/deck', deckController.deckPage);
 router.get('/deck/add/:id', deckController.addPokemon);
