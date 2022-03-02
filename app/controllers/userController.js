@@ -28,6 +28,22 @@ const userController = {
         }
     },
 
+    async userRoleChange(req, res) {
+        const userId = req.params.user_id;
+        const role = req.body;
+        try {
+            const foundUser = await User.findByPk(userId);
+            if (foundUser) {
+                const newRole = await foundUser.update(role);
+                res.json(newRole);
+            }
+            res.json(foundUser);
+        } catch (error) {
+            console.error(error);
+            res.status(500).send("error");
+        }
+    },
+
     async updateUser(req, res) {
         const userId = req.params.user_id;
         const { lastname, firstname, email } = req.body;

@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../sequelize");
+const sequelize = require("../db/sequelize");
 
 class Pokemon extends Model {}
 

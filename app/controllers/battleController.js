@@ -1,5 +1,5 @@
 const { Pokemon, Type } = require("../models");
-const sequelize = require('../sequelize');
+const sequelize = require('../db/sequelize');
 
 
 const battleController = {
