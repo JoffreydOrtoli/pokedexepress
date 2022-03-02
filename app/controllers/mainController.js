@@ -4,7 +4,7 @@ const mainController = {
   async homePage(req, res) {
     try {
       const allPokemon = await Pokemon.findAll();
-      res.render("home", { allPokemon });
+      res.json(allPokemon);
     } catch (error) {
       console.error(error);
       res.status(500).send("error");
