@@ -8,43 +8,13 @@ class User extends Model {
 }
 User.init(
   {
-    firstname: {
-        type: DataTypes.TEXT,
-        allowNull: false,
-        validate: {
-          notEmpty: true,
-        },
-    },
-
-    lastname: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      },
+    firstname: DataTypes.TEXT,
+    lastname: DataTypes.TEXT,
+    email: DataTypes.TEXT,
+    password: DataTypes.TEXT,
+    role: DataTypes.TEXT
   },
-    
-    email: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-      unique: true,
-      validate: {
-        notEmpty: true,
-        isEmail: true,
-      },
-    },
-    password: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      },
-    },
-    role: {
-      type: DataTypes.TEXT,
-    }
-  },
-  {
+  { 
     sequelize,
     tableName: "user",
   }

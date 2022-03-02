@@ -3,35 +3,15 @@ const sequelize = require("../sequelize");
 
 class Type extends Model {}
 
-Type.init({
-
-    id: {
-        type: DataTypes.TEXT,
-        primaryKey: true,
-        allowNull: false,
-        validate: {
-            notEmpty: true,
-        },
-    },
-  name: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-      validate: {
-          notEmpty: true,
-      },
+Type.init(
+  {
+    name: DataTypes.TEXT,
+    color: DataTypes.TEXT,
   },
-  color: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-      validate: {
-          notEmpty: true,
-      },
-  },
-},
-{
+  {
     sequelize,
     tableName: "type",
-}
+  }
 );
 
 module.exports = Type;

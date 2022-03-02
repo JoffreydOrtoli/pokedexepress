@@ -7,9 +7,14 @@ const userController = require('./controllers/userController');
 const deckController = require('./controllers/deckController');
 const battleController = require('./controllers/battleController');
 
-// Routes pokemon
+// Routes pokemon user
 router.get('/pokemon', pokemonController.getAllOnPokemon);
 router.get('/pokemon/:pokemon_id', pokemonController.getOnPokemon);
+
+// Routes pokemon admin
+router.post('/pokemon/', pokemonController.createPokemon);
+router.patch('/pokemon/:pokemon_id', pokemonController.updatePokemon);
+router.delete('/pokemon/:pokemon_id', pokemonController.deletePokemon);
 
 // Routes type
 router.get('/type', typeController.getAllType);

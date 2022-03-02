@@ -1,8 +1,8 @@
 # User Stories
 
-| En tant que | J'ai besoin de | afin de | Fait |
+| En tant que | J'ai besoin de | Afin de | Back | Front |
 |---|---|---|---|
-| Visiteur | une page d'acceuil | voir le contenu du site ||
+| Visiteur | une page d'acceuil | voir le contenu du site |  |
 | Visiteur | afficher la liste des pokemons | voir les pokemons ||
 | Visiteur | afficher le détail d'un pokemon | voir ses caractéristiques ||
 | Visiteur | afficher la liste des types  | voir les tpyes ||
