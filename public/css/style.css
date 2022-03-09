@@ -108,6 +108,10 @@ a, a:hover{
 
 /* Detail pokemon */
 
+.pokemon {
+    width: 80%;
+}
+
 .detail-pages_title {
     text-align: center;
     font-weight: bold;
@@ -124,7 +128,7 @@ a, a:hover{
 }
 
 .detail-pokemons_img {
-    width: 25%;
+    width: 50%;
 }
 
 #detail-pokemon_infos {

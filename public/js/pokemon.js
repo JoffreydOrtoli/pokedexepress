@@ -54,7 +54,8 @@ const pokemonModule = {
     makeOnPokemonInDom(data) {
         const templatetPokemon = document.getElementById('templateLPokemon');
         const clone = templatetPokemon.content.cloneNode(true);
-        // clone.querySelector('.get-on-pokemon').href = `/pokemons/${data.id}`;
+
+        clone.querySelector('.detail-pages_title').innerText = `Details de ${data.name}`;
         // clone.querySelector('.pokemons').id = data.id;
         clone.querySelector('.detail-pokemons_img').src = `/img/${data.id}.png`;
         // clone.querySelector('.h5').innerText = data.name;
