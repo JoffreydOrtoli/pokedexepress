@@ -2,24 +2,24 @@ const express = require('express');
 const routerAdmin = express.Router();
 
 const adminController = require('../controllers/adminController');
-
+const adminMiddleware = require('../middlewares/adminMiddleware');
 
 // Routes admin
 
-routerAdmin.post('/admin/pokemon', adminController.createPokemon);
+routerAdmin.post('/admin/pokemon', adminMiddleware, adminController.createPokemon);
 routerAdmin.route('/admin/pokemon/:pokemon_id')
-    .patch(adminController.updatePokemon)
-    .delete(adminController.deletePokemon);
+    .patch(adminMiddleware, adminController.updatePokemon)
+    .delete(adminMiddleware, adminController.deletePokemon);
 
-routerAdmin.post('/admin/type', adminController.createType);
+routerAdmin.post('/admin/type', adminMiddleware, adminController.createType);
 routerAdmin.route('/admin/type/:type_id')
-    .patch(adminController.updateType)
-    .delete(adminController.deleteType);
+    .patch(adminMiddleware, adminController.updateType)
+    .delete(adminMiddleware, adminController.deleteType);
 
-routerAdmin.get('/admin/user', adminController.getAllUser);
+routerAdmin.get('/admin/user', adminMiddleware, adminController.getAllUser);
 routerAdmin.route('/admin/user/:user_id')
-    .get(adminController.getOnUser)
-    .post(adminController.userRoleChange);
+    .get(adminMiddleware, adminController.getOnUser)
+    .post(adminMiddleware, adminController.userRoleChange);
 
     
 module.exports = routerAdmin;

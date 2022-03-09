@@ -2,7 +2,7 @@ const { Pokemon } = require("../models");
 
 const pokemonController = {
 
-    async getAllOnPokemon(req, res) {
+    async getAllPokemon(req, res) {
         try {
             const allPokemon = await Pokemon.findAll({ include: ["types"] });
             res.json(allPokemon);
