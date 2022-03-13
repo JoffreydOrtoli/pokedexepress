@@ -109,7 +109,7 @@ a, a:hover{
 /* Detail pokemon */
 
 .pokemon {
-    width: 80%;
+    width: 70%;
 }
 
 .detail-pages_title {
@@ -127,12 +127,12 @@ a, a:hover{
     align-items: center;
 }
 
-.detail-pokemons_img {
-    width: 50%;
+.detail-pokemon_img {
+    width: 40%;
 }
 
 #detail-pokemon_infos {
-    width: 45%;
+    width: 65%;
     background-color: #AB3838;
     color: #EFE3E3;
     padding: 2rem;
@@ -291,7 +291,9 @@ a, a:hover{
     .pokemons {
         width: 44%;
     }
-
+    .pokemon {
+        width: 90%;
+    }
     .pokemons-case {
         width: 100%;
     }
@@ -300,8 +302,8 @@ a, a:hover{
         font-size: 2rem;
     }
 
-    .detail-pokemons_img {
-        width: 90%;
+    .detail-pokemon_img {
+        width: 80%;
     }
 
     #detail-pokemon {
