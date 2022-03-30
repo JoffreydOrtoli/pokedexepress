@@ -8,7 +8,7 @@ const multer = require("multer");
 const router = require("./app/routers/router");
 const bodyParser = multer();
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname, "build")));
 app.use(express.urlencoded({ extended: true }));
