@@ -1,32 +1,40 @@
-require('dotenv').config();
-const express = require('express');
-const session = require('express-session');
-const path = require('path');
+require("dotenv").config();
+const express = require("express");
+const session = require("express-session");
+const path = require("path");
+
 const app = express();
-const router = require('./app/router');
-const userMiddleware = require('./app/middlewares/userMiddleware');
-const deckMiddleware = require('./app/middlewares/deckMiddleware');
+const cors = require("cors");
+const multer = require("multer");
+const router = require("./app/routers/router");
+
+const bodyParser = multer();
+const deckMiddleware = require("./app/middlewares/deckMiddleware");
 
 const PORT = process.env.PORT || 3000;
 
-app.set('view engine', 'ejs');
-app.set('views', './app/views');
+app.locals.deck = [];
 
-app.use(express.static(path.join(__dirname, '/public')));
-
-app.use(express.urlencoded({extended: true}));
-
+app.use(express.static(path.join(__dirname, "build")));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(cors());
+app.use(bodyParser.none());
 app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: true,
-    saveUninitialized: true,
-    cookie: { secure: false }
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    secure: false,
+  },
 }));
 
-app.use (userMiddleware);
-app.use(deckMiddleware);
+// app.use(deckMiddleware);
 app.use(router);
+app.use((req, res, next) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
 
-app.listen(PORT, (req, res) => { 
-    console.log(`listening on port http://localhost:${PORT}`);
+app.listen(PORT, () => {
+  console.log(`listening on port http://localhost:${PORT}`);
 });

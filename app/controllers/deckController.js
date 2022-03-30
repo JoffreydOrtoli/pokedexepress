@@ -1,51 +1,56 @@
-const { Pokemon, Type } = require("../models");
+const { User } = require("../models");
 
 const deckController = {
-
-    async addPokemon(req, res) {
-
-        const pokemonId = req.params.id;
-        const foundPokemon = req.session.deck.find(pokemon => pokemon.id === parseInt(pokemonId, 10));
-        if (foundPokemon) {
-            res.redirect("/deck");
-        } else {
-            if (req.session.deck.length < 6) {
-                try {
-                    const pokemon = await Pokemon.findByPk(pokemonId);
-                    if (pokemon) {
-                        req.session.deck.push(pokemon);
-                        res.redirect("/deck");
-                    } else {
-                        res.status(404).render("404");
-                    }
-                } catch (error) {
-                    console.error(error);
-                    response.status(500).send(error);
-                }
-            } else {
-                res.redirect("/deck");
-            }
-        }
-
-    },
-
-    async deckPage(req, res) {
-        if (!req.session.user) {
-            return res.redirect('/login');
-        }
-        res.render("deck", { pokemons: req.session.deck });
-    },
-
-    async removePokemon(req, res) {
-        const findPokemon = req.params.id;
-
-        const newDeck = req.session.deck.filter((pokemon) => {
-            return pokemon.id !== parseInt(findPokemon, 10);
-        });
-        req.session.deck = newDeck;
-        res.redirect('/deck');
+  async deckPage(req, res, next) {
+    try {
+      const user = await User.findByPk(req.user.id, { include: "pokemons" });
+      res.json(user.pokemons);
+    } catch (error) {
+      next(error);
     }
+  },
 
+  async addPokemon(req, res, next) {
+    try {
+      const user = await User.findByPk(req.user.id, { include: "pokemons" });
+      const userArray = [];
+      user.pokemons.forEach((pokemon) => {
+        userArray.push(pokemon);
+      });
+      const pokemon = req.params.id;
+      if (!user) {
+        return next();
+      }
+      if (!pokemon) {
+        return next();
+      }
+      if (userArray.length <= 5) {
+        await user.addPokemon(pokemon);
+        await user.reload();
+        return res.json(user);
+      }
+    } catch (error) {
+      return next(error);
+    }
+  },
+
+  async removePokemon(req, res, next) {
+    try {
+      const user = await User.findByPk(req.user.id, { include: "pokemons" });
+      if (!user) {
+        return next();
+      }
+      const pokemon = req.params.id;
+      if (!pokemon) {
+        return next();
+      }
+      await user.removePokemon(pokemon);
+      await user.reload();
+      return res.json(user);
+    } catch (error) {
+      return next(error);
+    }
+  },
 };
 
 module.exports = deckController;
