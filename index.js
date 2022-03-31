@@ -17,7 +17,7 @@ app.use(cors());
 app.use(bodyParser.none());
 app.use(session({
   secret: process.env.SESSION_SECRET,
-  resave: false,
+  resave: true,
   saveUninitialized: true,
   cookie: {
     secure: false,
