@@ -1,13 +1,13 @@
 const { Pokemon } = require("../models");
 
 const pokemonController = {
-  async getAllPokemon(req, res) {
+  async getAllPokemon(_, res) {
     try {
-      const allPokemon = await Pokemon.findAll({ include: ["types"] });
-      res.json(allPokemon);
+      const allPokemons = await Pokemon.findAll({ include: ["types"] });
+      res.json(allPokemons);
     } catch (error) {
       console.error(error);
-      res.status(500).send("error");
+      res.status(500).json(error.message);
     }
   },
 
@@ -20,7 +20,7 @@ const pokemonController = {
       res.json(foundPokemon);
     } catch (error) {
       console.error(error);
-      res.status(500).send("error");
+      res.status(500).json(error.message);
     }
   },
 };

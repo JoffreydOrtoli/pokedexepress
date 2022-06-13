@@ -1,4 +1,5 @@
 #MCD
+
 user: _firstname, lastname, email, password, role
 :
 type: _name, color
@@ -8,6 +9,7 @@ pokemon: _name, pv, attack, defense, attack_spe, defense_spe, speed
 pokemon has type, 1N pokemon, 0N type
 
 #MLD
+
 user (id, firstname, lastname, email, password, role, created_at, updated_at)
 pokemon has type (pokemon_id, type_id, created_at, updated_at)
 type (id, name, color, created_at, updated_at, created_at, updated_at)

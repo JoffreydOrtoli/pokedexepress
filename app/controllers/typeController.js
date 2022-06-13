@@ -1,13 +1,12 @@
 const { Type } = require("../models");
 
 const typeController = {
-  async getAllType(req, res) {
+  async getAllType(_, res) {
     try {
       const allType = await Type.findAll();
       res.json(allType);
     } catch (error) {
-      console.error(error);
-      res.status(500).send("error");
+      res.status(500).json(error.message);
     }
   },
 
@@ -19,8 +18,7 @@ const typeController = {
       });
       res.json(foundType);
     } catch (error) {
-      console.error(error);
-      res.status(500).send("error");
+      res.status(500).json(error.message);
     }
   },
 };

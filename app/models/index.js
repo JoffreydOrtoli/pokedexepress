@@ -32,3 +32,4 @@ Type.belongsToMany(Pokemon, {
 });
 
 module.exports = { Pokemon, Type, User };
+

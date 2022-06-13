@@ -7,8 +7,7 @@ const adminController = {
       const allUser = await User.findAll({ include: ["pokemons"] });
       res.json(allUser);
     } catch (error) {
-      console.error(error);
-      res.status(500).send("error");
+      res.status(500).json(error.message);
     }
   },
 
@@ -20,8 +19,7 @@ const adminController = {
       });
       res.json(foundUser);
     } catch (error) {
-      console.error(error);
-      res.status(500).send("error");
+      res.status(500).json(error.message);
     }
   },
 
@@ -36,8 +34,7 @@ const adminController = {
       }
       res.json(foundUser);
     } catch (error) {
-      console.error(error);
-      res.status(500).send("error");
+      res.status(500).json(error.message);
     }
   },
 
@@ -63,8 +60,7 @@ const adminController = {
         res.status(400).json("Erreur Pokemon non trouvé");
       }
     } catch (error) {
-      console.trace(error);
-      res.status(500).json(error);
+      res.status(500).json(error.message);
     }
   },
 
@@ -90,8 +86,7 @@ const adminController = {
         res.status(404).json("Pokemon non modifié");
       }
     } catch (error) {
-      console.trace(error);
-      res.status(500).json(error);
+      res.status(500).json(error.message);
     }
   },
 
@@ -106,8 +101,7 @@ const adminController = {
         res.status(404).json("CkCé!!!");
       }
     } catch (error) {
-      console.trace(error);
-      res.status(500).json(error);
+      res.status(500).json(error.message);
     }
   },
 
@@ -124,7 +118,7 @@ const adminController = {
       }
     } catch (error) {
       console.trace(error);
-      res.status(500).json(error);
+      res.status(500).json(error.message);
     }
   },
 
@@ -150,8 +144,7 @@ const adminController = {
         res.status(404).json("Type non modifié");
       }
     } catch (error) {
-      console.trace(error);
-      res.status(500).json(error);
+      res.status(500).json(error.message);
     }
   },
 
@@ -166,8 +159,7 @@ const adminController = {
         res.status(404).json("CkCé!!!");
       }
     } catch (error) {
-      console.trace(error);
-      res.status(500).json(error);
+      res.status(500).json(error.message);
     }
   },
 };

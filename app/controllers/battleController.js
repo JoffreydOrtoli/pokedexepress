@@ -22,7 +22,7 @@ const battleController = {
       return res.json(randomPokemon);
     } catch (error) {
       console.error(error);
-      return res.status(500).send("error");
+      res.status(500).json(error.message);
     }
   },
 };

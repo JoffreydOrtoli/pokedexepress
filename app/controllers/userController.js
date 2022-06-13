@@ -9,7 +9,6 @@ const userController = {
     try {
       const user = await User.findOne({ where: { email: req.body.email } });
 
-      // const refreshToken = jwt.sign(user.toJSON(), process.env.REFRESH_TOKEN_SECRET, { expiresIn: '1y' });
       if (!user) {
         res.status(401).send("invalid credentials");
         return;
@@ -26,7 +25,7 @@ const userController = {
       );
       res.json({ user, accesToken });
     } catch (error) {
-      res.status(500).json(error);
+      res.status(500).json(error.message);
     }
   },
 
@@ -54,7 +53,7 @@ const userController = {
       }
       return res.json("errorCreateAccount");
     } catch (error) {
-      return res.status(500).json(error);
+      res.status(500).json(error.message);
     }
   },
 
