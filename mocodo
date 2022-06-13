@@ -1,15 +1,43 @@
-MCD
+#MCD
 user: _firstname, lastname, email, password, role
 :
-type: _name, color, created_at, updated_at
+type: _name, color
 
 user has pokemon, 0N user, 0N pokemon
 pokemon: _name, pv, attack, defense, attack_spe, defense_spe, speed
 pokemon has type, 0N pokemon, 0N type
 
-MLD
-user (id, firstname, lastname, email, password, role )
-pokemon has type (id, pokemonId, typeId)
-type (id, name, color, created_at, updated_at )
-user has pokemon (id, userId, pokemonId)
-pokemon (id, name, pv, attack, defense, attack_spe, defense_spe, speed )
+#MLD
+user (id, firstname, lastname, email, password, role, created_at, updated_at)
+pokemon has type (id, pokemon_id, type_id, created_at, updated_at)
+type (id, name, color, created_at, updated_at, created_at, updated_at)
+user has pokemon (id, user_id, pokemon_id, created_at, updated_at)
+pokemon (id, name, pv, attack, defense, attack_spe, defense_spe, speed, created_at, updated_at)
+
+# Table user
+
+| Column | Type | Specifications / Constraints | Description |
+| ----- | ---- | ------------ | ----------- |
+| id | INTEGER | PRIMARY KEY, NOT NULL | User identification |
+| firstname | TEXT | NOT NULL | User firstname |
+| lastname | TEXT | NOT NULL | User lastname |
+| mail | TEXT | NOT NULL | User email |
+| password | TEXT | NOT NULL | User password |
+| role | TEXT | NOT NULL, DEFAULT "user" | Authorization level (user or admin levels) |
+| created_at | TIMESTAMP | NOT NULL, DEFAULT NOW | Creation date |
+| updated_at | TIMESTAMP | | Modification date |
+
+# Table pokemon
+
+| Column | Type | Specifications / Constraints | Description |
+| ----- | ---- | ------------ | ----------- |
+| id | INTEGER | PRIMARY KEY, NOT NULL | Pokemon identification |
+| name | TEXT | NOT NULL | Pokemon name |
+| pv | INTEGER | NOT NULL | Life pokemon |
+| attack | INTEGER | NOT NULL | Attack pokemon |
+| defense | INTEGER | NOT NULL | Defense pokemon |
+| attack_spe | INTEGER | NOT NULL | Attack spe pokemon |
+| defense_spe | INTEGER | NOT NULL | Defense spe pokemon |
+| speed | INTEGER | NOT NULL | Speed pokemon |
+| created_at | TIMESTAMP | NOT NULL, DEFAULT NOW | Creation date |
+| updated_at | TIMESTAMP | | Modification date |
