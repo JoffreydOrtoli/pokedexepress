@@ -1,7 +1,15 @@
+MCD
 user: _firstname, lastname, email, password, role
 :
 type: _name, color, created_at, updated_at
 
-user_has_pokemon, 0N user, 0N pokemon
+user has pokemon, 0N user, 0N pokemon
 pokemon: _name, pv, attack, defense, attack_spe, defense_spe, speed
-pokemon_has_type, 0N pokemon, 0N type
+pokemon has type, 0N pokemon, 0N type
+
+MLD
+user (id, firstname, lastname, email, password, role )
+pokemon has type (id, pokemonId, typeId)
+type (id, name, color, created_at, updated_at )
+user has pokemon (id, userId, pokemonId)
+pokemon (id, name, pv, attack, defense, attack_spe, defense_spe, speed )
