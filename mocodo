@@ -46,12 +46,16 @@ pokemon (id, name, pv, attack, defense, attack_spe, defense_spe, speed, created_
 
 | Column | Type | Specifications / Constraints | Description |
 | ----- | ---- | ------------ | ----------- |
-| type_id | ENTITY | PRIMARY KEY, NOT NULL | type identification (foreign key)|
+| type_id | ENTITY | PRIMARY KEY, NOT NULL | Type identification (foreign key)|
 | pokemon_id | ENTITY | PRIMARY KEY, NOT NULL | Pokemon identification (foreign key)|
+| created_at | TIMESTAMP | NOT NULL, DEFAULT NOW | Creation date |
+| updated_at | TIMESTAMP | | Modification date |
 
 # Table user_has_pokemon
 
 | Column | Type | Specifications / Constraints | Description |
 | ----- | ---- | ------------ | ----------- |
-| user_id | ENTITY | PRIMARY KEY, NOT NULL | user identification (foreign key)|
+| user_id | ENTITY | PRIMARY KEY, NOT NULL | User identification (foreign key)|
 | pokemon_id | ENTITY | PRIMARY KEY, NOT NULL | Pokemon identification (foreign key)|
+| created_at | TIMESTAMP | NOT NULL, DEFAULT NOW | Creation date |
+| updated_at | TIMESTAMP | | Modification date |
