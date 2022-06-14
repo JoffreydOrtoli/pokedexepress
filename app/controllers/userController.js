@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
@@ -28,30 +29,30 @@ const userController = {
       res.status(500).json(error.message);
     }
   },
-
+  // eslint-disable-next-line consistent-return
   async createUser(req, res) {
     const {
       lastname, firstname, email, password, passwordConfirm,
     } = req.body;
-    if (req.body.password !== req.body.passwordConfirm) {
+    if (password !== passwordConfirm) {
       return res.json("passwordNotMatch");
     }
-    if (!emailValidator.validate(req.body.email)) {
+    if (!emailValidator.validate(email)) {
       return res.json("emailNotCorrect");
     }
     const cryptedPassword = bcrypt.hashSync(password, 10);
     try {
       const user = await User.findOne({ where: { email: req.body.email } });
-      if (!user) {
-        const userCreated = await User.create({
-          firstname,
-          lastname,
-          email,
-          password: cryptedPassword,
-        });
-        return res.json(userCreated);
+      if (user) {
+        return res.json("errorCreateAccount");
       }
-      return res.json("errorCreateAccount");
+      const userCreated = await User.create({
+        firstname,
+        lastname,
+        email,
+        password: cryptedPassword,
+      });
+      return res.json("userCreated");
     } catch (error) {
       res.status(500).json(error.message);
     }
